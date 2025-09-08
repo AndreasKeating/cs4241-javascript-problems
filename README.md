@@ -60,8 +60,16 @@ const Painter = {
 // make sure the values for each color channel are different
 // (i.e. no gray/black/white blocks)
 
+function randomColor(){
+
+   const randomColorNum = Math.floor(Math.random() * ((256 * 256 * 256)));
+    document.body.style.backgroundColor = randomColorNum;
+    return randomColorNum;
+}
+
 for (let i = 0; i < 20; i++) {
     
+    const block = document.createElement("div");
 }
 
 
@@ -82,4 +90,8 @@ for (let i = 0; i < 20; i++) {
 // every button that is created should have this same behavior.
 // put random text inside of each button so you can be sure 
 // that each button is different.
+
+function RandomText() {
+    Math.random(From 1 to 5)
+}
 ```
