@@ -31,8 +31,26 @@ In this activity, you will be completing a series of JavaScript exercises on you
 // paint() that sets the background color of the
 // page to a random color whenever called. 
 
-const Artist  = {}
-const Painter = {} 
+const Artist  = {
+    speak(){
+        console.log("I am an artist");
+    }
+};
+
+const Painter = {
+    speak(){
+        Artist.speak();
+    }
+    paint(){
+
+        //const r = Math.floor(Math.random() * 256);
+         //const g = Math.floor(Math.random() * 256);
+        //const b = Math.floor(Math.random() * 256); 
+
+        const randomColorNum = Math.floor(Math.random() * ((256 * 256 * 256)));
+        document.body.style.backgroundColor = randomColorNum;
+    }
+};
 ```
 
 **Problem 2**
@@ -41,6 +59,11 @@ const Painter = {}
 // all on a single row, with a random color for each
 // make sure the values for each color channel are different
 // (i.e. no gray/black/white blocks)
+
+for (let i = 0; i < 20; i++) {
+    
+}
+
 
 ```
 
