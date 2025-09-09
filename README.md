@@ -149,8 +149,33 @@ for (let i = 0; i < 20; i++) {
 // every button that is created should have this same behavior.
 // put random text inside of each button so you can be sure 
 // that each button is different.
+<!DOCTYPE html>
 
-function RandomText() {
-    Math.random(From 1 to 5)
-}
+<html>
+<body>
+  <button id="starter">Click me</button>
+
+  <script>
+    function RandomText{
+      const texts = ["Alpha", "Bravo", "Charlie", "Delta", "Echo"];
+      let index = Math.random() * texts.length;
+      return texts[index]
+    }
+
+    function setupButton(button) {
+      button.addEventlistener("click", function {
+        const newButton = document.createelement("Button")
+        newButton.innerHTML RandomText;
+        setupButton(newButton)
+        document.body.addchild(newButton)
+        button.delete();
+      })
+    }
+
+    const starter = document.getElementByID("starter")
+    setupButton(starter)
+  </script>
+</body>
+</html>
+
 ```
