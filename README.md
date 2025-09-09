@@ -47,7 +47,7 @@ const Painter = {
          //const g = Math.floor(Math.random() * 256);
         //const b = Math.floor(Math.random() * 256); 
 
-        const randomColorNum = `#${Math.floor(Math.random() * ((256 * 256 * 256))).toString(16)}`; //Fixed by makig it an actual Hex color
+        const randomColorNum = `#${Math.floor(Math.random() * ((256 * 256 * 256))).toString(16).padStart(6, "0")}`; //Fixed by makig it an actual Hex color
         document.body.style.backgroundColor = randomColorNum;
     }
 };
@@ -117,6 +117,29 @@ for (let i = 0; i < 20; i++) {
 // whenever the user enters a letter in it:
 // 1. Creates a <h1> element containing the letter and appends it to the page
 // 2. deletes the inputted letter from the input field so it is blank
+<!DOCTYPE html>
+
+<html>
+<body>
+
+    <input id  = "letterInput" type = "text" maxlength= "1">
+
+    <script>
+        const input = document.getElementById(letterinput);
+
+        input.addEventLister(input, function ()) {
+            const letter = input.value;
+            if(letter) {
+                const h1 = document.createElement(h1)
+                h1.textContent = letter;
+                document.body.appendChild(h1);
+
+                input.value = "";
+            }
+        }
+
+</body>
+</html>
 ```
 
 **Problem 4**
