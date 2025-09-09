@@ -47,7 +47,7 @@ const Painter = {
          //const g = Math.floor(Math.random() * 256);
         //const b = Math.floor(Math.random() * 256); 
 
-        const randomColorNum = Math.floor(Math.random() * ((256 * 256 * 256)));
+        const randomColorNum = `#${Math.floor(Math.random() * ((256 * 256 * 256))).toString(16)}`; //Fixed by makig it an actual Hex color
         document.body.style.backgroundColor = randomColorNum;
     }
 };
@@ -62,16 +62,52 @@ const Painter = {
 
 function randomColor(){
 
-   const randomColorNum = Math.floor(Math.random() * ((256 * 256 * 256)));
-    document.body.style.backgroundColor = randomColorNum;
-    return randomColorNum;
+   //const randomColorNum = `#${Math.floor(Math.random() * ((256 * 256 * 256))).toString(16)}`;
+
+    let r, g, b;
+    r = Math.floor(Math.random() * 256);
+    g = Math.floor(Math.random() * 256);
+    b = Math.floor(Math.random() * 256);
+
+    while (g === b && r ===g) { //To make sure I don't generate gray/black/white colors.
+        r = Math.floor(Math.random() * 256);
+        g = Math.floor(Math.random() * 256);
+        b = Math.floor(Math.random() * 256);
+    } 
+
+    return ("#" + r.toString(16).padStart(2, "0") + g.toString(16).padStart(2, "0") + b.toString(16).padStart(2, "0"));
+    //return randomColorNum;
 }
 
+const usedColors[];
+const row = document.getElementById("row");
 for (let i = 0; i < 20; i++) {
-    
-    const block = document.createElement("div");
-}
 
+    const block = document.createElement("div");
+
+    block.style.width = "50px";
+    block.style.height = "50px";
+    block.style.display = "inline-block"; // (Buttons "spawn" in Single row)
+
+    let repeatedColor = true;
+    let color;
+    while (repeatedColor) {
+        color = randomColor();
+        repeatedColor = false;
+
+        for (let x = 0; x < usedColors.length; x++) {
+            if (color === usedColors[x]) {
+            repeatedColor = true;
+            
+            break;
+            }
+        }
+    }
+    
+
+
+    row.appendChild(block);
+}
 
 ```
 
