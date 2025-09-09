@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+  <button id="starter"> Click me </button>
+
+  <script>
+    //**Problem 4**
+    // make a button that, when clicked, creates a new
+    // button, and then deletes the original button. 
+    // every button that is created should have this same behavior.
+    // put random text inside of each button so you can be sure 
+    // that each button is different.
+
+    function RandomText (){
+      const texts = ["Alpha", "Bravo", "Charlie", "Delta", "Echo"];
+      const index = Math.floor(Math.random() * texts.length);
+      return texts[index];
+    }
+
+    function setupButton(button) {
+      button.addEventListener("click", function() {
+        const newButton = document.createElement("button");
+        newButton.innerHTML = RandomText();
+        setupButton(newButton);
+        document.body.appendChild(newButton);
+        //button.delete();
+        button.remove();
+      });
+    }
+
+    const starter = document.getElementById("starter");
+    setupButton(starter);
+  </script>
+</body>
+</html>

@@ -130,7 +130,7 @@ for (let i = 0; i < 20; i++) {
         input.addEventListener("input", function () {
             const letter = input.value;
             if(letter) {
-                const h1 = document.createElement("h1")
+                const h1 = document.createElement("h1");
                 h1.textContent = letter;
                 document.body.appendChild(h1);
 
@@ -170,7 +170,7 @@ for (let i = 0; i < 20; i++) {
         document.body.appendChild(newButton);
         //button.delete();
         button.remove();
-      })
+      });
     }
 
     const starter = document.getElementById("starter");

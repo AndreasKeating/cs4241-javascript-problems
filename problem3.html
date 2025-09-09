@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+    <input id  = "letterInput" type = "text" maxlength= "1">
+    <script>
+        //**Problem 3**
+        // create a for input field that does the following 
+        // whenever the user enters a letter in it:
+        // 1. Creates a <h1> element containing the letter and appends it to the page
+        // 2. deletes the inputted letter from the input field so it is blank
+
+        const input = document.getElementById("letterInput");
+
+        input.addEventListener("input", function () {
+            const letter = input.value;
+            if(letter) {
+                const h1 = document.createElement("h1");
+                h1.textContent = letter;
+                document.body.appendChild(h1);
+
+                input.value = "";
+            }
+        });
+
+    </script>
+</body>
+</html>

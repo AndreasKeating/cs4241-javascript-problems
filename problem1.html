@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+    <script>
+        // **Problem 1**
+        // Make two objects named Artist
+        // and Painter. Artist should have
+        // a function named speak() that
+        // when called logs "I am an artist"
+        // to the console. Painter should be
+        // able to use the Artist's speak function
+        // (painters are artists, after all) in some
+        // way, and should also have a function named
+        // paint() that sets the background color of the
+        // page to a random color whenever called. 
+
+        const Artist  = {
+            speak(){
+                console.log("I am an artist");
+            }
+        };
+
+        const Painter = {
+            speak(){
+                Artist.speak();
+            },
+            paint(){
+
+                //const r = Math.floor(Math.random() * 256);
+                //const g = Math.floor(Math.random() * 256);
+                //const b = Math.floor(Math.random() * 256); 
+
+                const randomColorNum = `#${Math.floor(Math.random() * ((256 * 256 * 256))).toString(16).padStart(6, "0")}`; //Fixed by makig it an actual Hex color
+                document.body.style.backgroundColor = randomColorNum;
+            }
+        };
+
+    </script>
+</body>
+</html>

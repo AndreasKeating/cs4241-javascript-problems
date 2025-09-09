@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+    <div id="row"></div>
+
+    <script>
+        //**Problem 2**
+        // create a for loop that creates 20 blocks,
+        // all on a single row, with a random color for each
+        // make sure the values for each color channel are different
+        // (i.e. no gray/black/white blocks)
+
+        function randomColor(){
+
+        //const randomColorNum = `#${Math.floor(Math.random() * ((256 * 256 * 256))).toString(16)}`;
+
+            let r, g, b;
+            r = Math.floor(Math.random() * 256);
+            g = Math.floor(Math.random() * 256);
+            b = Math.floor(Math.random() * 256);
+
+            while (g === b && r ===g) { //To make sure I don't generate gray/black/white colors.
+                r = Math.floor(Math.random() * 256);
+                g = Math.floor(Math.random() * 256);
+                b = Math.floor(Math.random() * 256);
+            } 
+
+            return ("#" + r.toString(16).padStart(2, "0") + g.toString(16).padStart(2, "0") + b.toString(16).padStart(2, "0"));
+            //return randomColorNum;
+        }
+
+        const usedColors = [];
+        const row = document.getElementById("row");
+        for (let i = 0; i < 20; i++) {
+
+            const block = document.createElement("div");
+
+            block.style.width = "50px";
+            block.style.height = "50px";
+            block.style.display = "inline-block"; // (Buttons "spawn" in Single row)
+
+            let repeatedColor = true;
+            let color;
+            while (repeatedColor) { // Checks for repeat colors
+                color = randomColor();
+                repeatedColor = false;
+
+                for (let x = 0; x < usedColors.length; x++) {
+                    if (color === usedColors[x]) {
+                    repeatedColor = true;
+
+                    break;
+                    }
+                }
+            }
+            
+            usedColors.push(color);
+            block.style.backgroundColor = color;
+            row.appendChild(block);
+        }
+    </script>
+</body>
+</html>
