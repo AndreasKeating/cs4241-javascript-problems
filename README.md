@@ -153,29 +153,29 @@ for (let i = 0; i < 20; i++) {
 
 <html>
 <body>
-  <button id="starter">Click me</button>
+  <button id="starter"> Click me </button>
 
   <script>
-    function RandomText{
+    function RandomText (){
       const texts = ["Alpha", "Bravo", "Charlie", "Delta", "Echo"];
-      let index = Math.random() * texts.length;
-      return texts[index]
+      const index = Math.floor(Math.random() * texts.length);
+      return texts[index];
     }
 
     function setupButton(button) {
-      button.addEventlistener("click", function {
-        const newButton = document.createelement("Button")
-        newButton.innerHTML RandomText;
-        setupButton(newButton)
-        document.body.addchild(newButton)
-        button.delete();
+      button.addEventListener("click", function() {
+        const newButton = document.createElement("button");
+        newButton.innerHTML = RandomText();
+        setupButton(newButton);
+        document.body.appendChild(newButton);
+        //button.delete();
+        button.remove();
       })
     }
 
-    const starter = document.getElementByID("starter")
-    setupButton(starter)
+    const starter = document.getElementById("starter");
+    setupButton(starter);
   </script>
 </body>
 </html>
-
 ```
