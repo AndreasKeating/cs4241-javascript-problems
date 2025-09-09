@@ -125,19 +125,19 @@ for (let i = 0; i < 20; i++) {
     <input id  = "letterInput" type = "text" maxlength= "1">
 
     <script>
-        const input = document.getElementById(letterinput);
+        const input = document.getElementById("letterInput");
 
-        input.addEventLister(input, function ()) {
+        input.addEventListener("input", function () {
             const letter = input.value;
             if(letter) {
-                const h1 = document.createElement(h1)
+                const h1 = document.createElement("h1")
                 h1.textContent = letter;
                 document.body.appendChild(h1);
 
                 input.value = "";
             }
-        }
-
+        });
+    </script>
 </body>
 </html>
 ```
