@@ -40,7 +40,7 @@ const Artist  = {
 const Painter = {
     speak(){
         Artist.speak();
-    }
+    },
     paint(){
 
         //const r = Math.floor(Math.random() * 256);
@@ -79,7 +79,7 @@ function randomColor(){
     //return randomColorNum;
 }
 
-const usedColors[];
+const usedColors = [];
 const row = document.getElementById("row");
 for (let i = 0; i < 20; i++) {
 
@@ -91,21 +91,21 @@ for (let i = 0; i < 20; i++) {
 
     let repeatedColor = true;
     let color;
-    while (repeatedColor) {
+    while (repeatedColor) { // Checks for repeat colors
         color = randomColor();
         repeatedColor = false;
 
         for (let x = 0; x < usedColors.length; x++) {
             if (color === usedColors[x]) {
             repeatedColor = true;
-            
+
             break;
             }
         }
     }
     
-
-
+    usedColors.push(color);
+    block.style.backgroundColor = color;
     row.appendChild(block);
 }
 
